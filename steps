@@ -1,0 +1,50 @@
+// 無料インスタンスを使うため、GCEのゾーン：us-west1、マシンタイプ：e2-microを選択する。
+// イメージ：debian-12となる。（コマンドはaptとなる）
+
+// 日時を表示
+date
+
+// スワップ領域を設定する
+sudo dd if=/dev/zero of=/swapfile bs=1M count=2048
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+
+// ファイルfstabを開く
+sudo nano /etc/fstab
+// ファイル末尾に書き込む
+/swapfile none swap sw 0 0
+
+
+// apt アップデートを実行
+sudo apt update
+
+// インストールされるバージョンを確認 
+apt info apache2
+
+// apache をインストール
+sudo apt install apache2
+
+
+
+
+// httpd のバージョンを確認
+$ httpd -v
+
+// httpd をスタート
+$ sudo systemctl start httpd 
+
+// httpd の起動ステータスを確認
+$ systemctl status httpd 
+
+// サーバ起動時に、httpd を自動起動する設定
+$ sudo systemctl enable httpd
+
+// httpd の自動起動設定を確認
+$ systemctl is-enabled httpd
+
+// HTML ファイル作成
+$ sudo sh -c "echo 'Hello GCP' >> /var/www/html/index.html"
+
+// HTML ファイルの中身を表示
+$ cat /var/www/html/index.html
