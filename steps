@@ -25,6 +25,11 @@ apt info apache2
 // apache をインストール
 sudo apt install apache2
 
+// Apache ウェブサーバーのデフォルトウェブページを上書き
+echo '<!doctype html><html><body><h1>Hello World!</h1></body></html>' | sudo tee /var/www/html/index.html
+
+// Apache ウェブサーバーのデフォルトウェブページを上書き
+sudo cat xxx.html | sudo tee /var/www/html/index.html
 
 
 
