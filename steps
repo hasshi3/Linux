@@ -31,6 +31,12 @@ echo '<!doctype html><html><body><h1>Hello World!</h1></body></html>' | sudo tee
 // Apache ウェブサーバーのデフォルトウェブページを上書き
 sudo cat xxx.html | sudo tee /var/www/html/index.html
 
+// Cloud SQL インスタンスに接続(Cloud Shell)
+psql -h 34.19.13.160 -U postgres -p 5432
+eqdb2024
+
+// プロジェクトが正しく認識されているか。
+gcloud config list project
 
 
 // httpd のバージョンを確認
